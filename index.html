@@ -20,35 +20,27 @@
     </head>
 
     <body>
-                                <form  onsubmit="sendEmail(); reset(); return false;">
-                                        <input name="name" type="text" class="form-control" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
-                                        <input name="email" type="email" class="form-control" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
-                                        <input name="subject" type="text" class="form-control" id="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
-                                        <textarea name="message" class="form-control" id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
-                                        <button class="btn" type="submit" id="sendMessageButton">Send Message</button>
-                                </form>
-                          
+        <form onsubmit="sendEmail(); reset(); return false;">
+            <input name="name" type="text" class="form-control" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
+            <input name="email" type="email" class="form-control" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
+            <input name="subject" type="text" class="form-control" id="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
+            <textarea name="message" class="form-control" id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
+            <button class="btn" type="submit" id="sendMessageButton">Send Message</button>
+        </form>
 
-
-        
-<script src="https://smtpjs.com/v3/smtp.js"></script>
-<script>
-    function sendEmail(){
-        Email.send({
-    SecureToken : "C973D7AD-F097-4B95-91F4-40ABC5567812",
-    To : 'ajlan.intern@notionpress.com',
-    From : "you@isp.com",
-    Subject : "This is the subject",
-    Body : "And this is the body",
-	Attachments : [
-	{
-		name : "smtpjs.png",
-		path : "https://networkprogramming.files.wordpress.com/2017/11/smtpjs.png"
-	}]
-}).then(
-  message => alert(message)
-);
-    }
-</script>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+        <script>
+            function sendEmail() {
+                Email.send({
+                    SecureToken: "C973D7AD-F097-4B95-91F4-40ABC5567812",
+                    To: 'ajlan.intern@notionpress.com',
+                    From: document.getElementById('email').value,
+                    Subject: "This is the subject",
+                    Body: "And this is the body"
+                }).then(
+                    message => alert(message)
+                );
+            }
+        </script>
     </body>
 </html>
