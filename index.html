@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<style>
+    body{
+        display: inline-block;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+
+    }
+    input{
+        margin: 10px;
+    }
+</style>
+    </head>
+
+    <body>
+                                <form  onsubmit="sendEmail(); reset(); return false;">
+                                        <input name="name" type="text" class="form-control" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
+                                        <input name="email" type="email" class="form-control" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
+                                        <input name="subject" type="text" class="form-control" id="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
+                                        <textarea name="message" class="form-control" id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
+                                        <button class="btn" type="submit" id="sendMessageButton">Send Message</button>
+                                </form>
+                          
+
+
+        
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+    function sendEmail(){
+        Email.send({
+    Host : "smtp.elasticemail.com",
+    Username : "muhammedazlan11@gmail.com",
+    Password : "password",
+    To : 'ajlan.intern@notionpress.com',
+    From : document.getElementById('email').value,
+    Subject : "This is the subject",
+    Body : "And this is the body"
+}).then(
+  message => alert(message)
+);
+    }
+</script>
+    </body>
+</html>
